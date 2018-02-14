@@ -16,42 +16,42 @@ public class PizzeriaDaPeppiniello {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws InterruptedException {
-        BoundedBuffer buffer=new BoundedBuffer();
+        Cliente buffer=new Cliente();
         Random gen=new Random();
-        Thread thread=null;
-        int possibiliClienti=0, turno=0;
-        final int CLIENTI=14;
-        int controllo=1+gen.nextInt(3);
-        while(possibiliClienti<=CLIENTI){
-            int n=1+gen.nextInt(4);
-            possibiliClienti=possibiliClienti+n;
-            if(possibiliClienti>CLIENTI)
-                n=CLIENTI-(possibiliClienti-n);
-            turno++;
+        final int MAXPOSTI=14;
+        Thread thread[]=new Thread[MAXPOSTI];
+        int turno=1, clienti=0, postiDisponibili=MAXPOSTI;
+        int controllo=1+gen.nextInt(2);
+        
+        while(clienti<MAXPOSTI){
+            int n=1+gen.nextInt(postiDisponibili);
+            postiDisponibili=postiDisponibili-n;
             System.out.println("! Hanno intenzione di entrare in pizzeria "+n+" clienti");
             for(int i=0; i<n; i++){
-                thread=new Thread(buffer);
+                clienti++;
+                thread[i]=new Thread(buffer, "Cliente "+clienti);
                 if(buffer.posti.availablePermits()==0){
-                    System.out.println(thread.getName()+" sta aspettando fuori che si liberi un posto...");
-                    thread.join();
+                    System.out.println(thread[i].getName()+" sta aspettando fuori che si liberi un posto...");
+                    thread[i].join();
                 }
-                thread.start();
+                thread[i].start();
                 Thread.sleep(200);
             }
             if(turno==controllo)
                 System.out.println("Il cameriere è passato tra i tavoli e ha contato "+buffer.posti.availablePermits()+" posti disponibili");
             Thread.sleep(12000);
+            turno++;
         }
     }
 }
 
-class BoundedBuffer implements Runnable{
+class Cliente implements Runnable{
     
     Semaphore posti;
     private Random gen=new Random();
     
-    public BoundedBuffer(){
-        posti = new Semaphore(12);
+    public Cliente(){
+        posti=new Semaphore(12);
     }
     
     @Override
@@ -69,8 +69,7 @@ class BoundedBuffer implements Runnable{
             e.printStackTrace();
         } finally {
             posti.release();
-            System.out.println(Thread.currentThread().getName()+" esce dalla pizzeria");
+            System.out.println(Thread.currentThread().getName()+" è uscito dalla pizzeria");
         }
     }
 }
-
