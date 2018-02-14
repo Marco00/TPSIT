@@ -4,9 +4,9 @@ Il programma RisorseCondivise è formato da due classi e tre programmi di prova.
 
 <UL>
   
-	<LI> Risorsa: classe contenente le risorse utilizzate dai thread.
+	Risorsa: classe contenente le risorse utilizzate dai thread.
   
-	<LI> Task: classe che implementa l'interfaccia Runnable e include il metodo sovrascritto run(), il quale permette ai thread di acquisire e rilasciare le risorse.
+	Task: classe che implementa l'interfaccia Runnable e include il metodo sovrascritto run(), il quale permette ai thread di acquisire e rilasciare le risorse.
   
 	<LI> Simul1: esercizio in cui due thread cercano di accedere alla stessa risorsa ma per poterla utilizzare, un thread deve aspettare che l'altro la rilasci in modo tale da non entrare nella zona vietata ossia, un'area in cui la risorsa sarebbe accessibile contemporaneamente ad entrambi i thread .
   
