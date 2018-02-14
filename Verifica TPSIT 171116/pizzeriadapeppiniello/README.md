@@ -6,7 +6,7 @@ La verifica pratica va consegnata nella cartella <BR>
 171116_type_nama <BR>
 dove type è la tipologia del progetto (il titolo del progetto) e name è il cognome dello studente, tutti in minuscolo. Tale cartella conterrà le classi o la classe java, una documentazione succinta in README.md (formattazione markdown) e nessun file compilato. Non è previsto l'uso di nessuna IDE. <BR>
 I progetti verranno consegnati tramite git, nessuna altra modalità di consegna sarà prevista; il link del repository verrà consegnato dal docente.
-<BR>
+<BR> <BR>
 titolo tema B: pizzeria da Peppiniello
 <BR>
     Alla pizzeria da Peppiniello vi sono 12 posti; in pizzerie tutti i clienti vengono serviti in un tempo che per ragioni pratiche sia fra i 40'' ed il minuto - lo si decida a piacere. <BR>
