@@ -16,6 +16,6 @@ titolo tema B: pizzeria da Peppiniello
 
 A terminale vanno dati opportuni messaggi per leggere sinteticamente l'evoluzione del sistema. <BR> <BR>
 <B> Descrizione del progetto </B> <BR>
-Il progetto PizzeriaDaPeppiniello ha il compito di simulare il via via di clienti all'interno di una pizzeria. <BR>
-Le persone vengono rappresentate con un array di threads. <BR>
-È presente anche una classe chiamata Cliente che implementa l'interfaccia Runnable e che, usufuendo del metodo run, simula l'attività di un acquirente all'interno dell'edificio.
+Il progetto PizzeriaDaPeppiniello ha il compito di simulare il via vai di clienti all'interno di una pizzeria. <BR>
+L'insieme di persone viene rappresentato con un array di threads. <BR>
+È presente anche una classe chiamata Cliente che implementa l'interfaccia Runnable e che, usufuendo del metodo run, simula l'attività di un acquirente all'interno della pizzeria.
